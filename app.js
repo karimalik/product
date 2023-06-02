@@ -10,8 +10,14 @@ connectDB();
 //middleware
 app.use(express.json());
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3001");
+const server = app.listen(process.env.PORT, () => {
+    console.log("Server is running");
 });
+
+//error hadling
+process.on("unhandledRejection", err => {
+    console.log(`An error occurred: ${err.message}`)
+    server.close(() => process.exit(1))
+})
 
 module.exports = app;
