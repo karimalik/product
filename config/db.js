@@ -5,8 +5,8 @@ const connectDB = async () => {
     await mongoose.connect(process.env.DATABASE_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true
-    })
-    console.log("Database connected")
+    });
+    console.log("Database connected");
 }
 
-module.exports = connectDB
+module.exports = connectDB;
